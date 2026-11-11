@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Argus Remote</string>
+
+    <string name="setup_title">Set up the remote</string>
+    <string name="setup_subtitle">Use this phone as a Bluetooth keyboard for the presentation computer.</string>
+
+    <string name="setup_step_permission">1. Allow Bluetooth access</string>
+    <string name="setup_step_permission_body">Android needs Bluetooth permission to register the keyboard and make the phone discoverable.</string>
+    <string name="setup_grant_permission">Grant permission</string>
+    <string name="setup_open_settings">Open app settings</string>
+    <string name="setup_permission_denied">Bluetooth permission is not granted. If the prompt no longer appears, open the app settings and allow Bluetooth.</string>
+
+    <string name="setup_step_bluetooth">2. Turn on Bluetooth</string>
+    <string name="setup_bluetooth_body">Bluetooth is off. Turn it on before enabling keyboard mode.</string>
+    <string name="setup_bluetooth_on">Bluetooth is on.</string>
+    <string name="setup_bluetooth_permission_hint">Allow Bluetooth access first.</string>
+    <string name="setup_turn_on_bluetooth">Turn on Bluetooth</string>
+
+    <string name="setup_step_keyboard">3. Enable keyboard mode</string>
+    <string name="setup_keyboard_body">Register this phone as a Bluetooth keyboard before pairing with the computer.</string>
+    <string name="setup_enable_keyboard">Enable keyboard mode</string>
+    <string name="setup_keyboard_registered">Keyboard mode is on.</string>
+    <string name="setup_make_discoverable">Make phone discoverable</string>
+    <string name="setup_discoverable_hint">Keep this screen open and pair from the computer within 120 seconds.</string>
+
+    <string name="setup_step_pair">4. Pair with the computer</string>
+    <string name="setup_pair_body">On the computer, open Bluetooth settings, find this phone and pair it. If the phone was paired before, remove the old pairing on both sides first.</string>
+    <string name="setup_hosts_empty">No paired computers found.</string>
+    <string name="setup_refresh">Refresh</string>
+    <string name="setup_connect">Connect</string>
+    <string name="setup_connected">Connected</string>
+    <string name="setup_open_remote">Open remote</string>
+    <string name="setup_unsupported">This phone does not expose the Bluetooth HID keyboard profile. The remote cannot work on this device.</string>
+    <string name="setup_offline_note">The presentation must be open and focused on the computer. This remote sends arrow keys over Bluetooth and does not use the internet.</string>
+
+    <string name="status_connected_short">Connected</string>
+    <string name="status_ready">Ready</string>
+    <string name="status_off">Off</string>
+    <string name="status_bluetooth_off">BT off</string>
+    <string name="status_unsupported">No HID</string>
+
+    <string name="remote_connection">Connection</string>
+    <string name="remote_settings">Settings</string>
+    <string name="remote_not_connected">Not connected. Open Connection to pair or connect.</string>
+
+    <string name="timer_elapsed">Elapsed</string>
+    <string name="timer_target_value">Target %1$s</string>
+    <string name="timer_remaining_value">Remaining %1$s</string>
+    <string name="timer_over">Over target by %1$s</string>
+    <string name="timer_start">Start</string>
+    <string name="timer_pause">Pause</string>
+    <string name="timer_reset">Reset</string>
+    <string name="timer_edit">Edit target</string>
+
+    <string name="remote_previous">PREVIOUS</string>
+    <string name="remote_next">NEXT</string>
+    <string name="remote_hold_hint">Hold: whole slide</string>
+    <string name="remote_black_screen">Black screen</string>
+    <string name="remote_full_screen">Full screen</string>
+    <string name="remote_overview">Overview</string>
+    <string name="remote_theme">Theme</string>
+    <string name="remote_first_slide">First slide</string>
+    <string name="remote_last_slide">Last slide</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_target">Presentation target</string>
+    <string name="settings_target_hint">mm:ss</string>
+    <string name="settings_save">Save</string>
+    <string name="settings_invalid_target">Enter a time between 01:00 and 180:00.</string>
+    <string name="settings_haptics">Haptic feedback</string>
+    <string name="settings_keep_screen_on">Keep screen on</string>
+    <string name="settings_about">Argus Remote sends keyboard shortcuts over Bluetooth. It does not connect to the internet.</string>
+    <string name="settings_version">Version %1$s</string>
+
+    <string name="error_unsupported">Bluetooth HID keyboard is not supported on this phone.</string>
+    <string name="error_bluetooth_off">Bluetooth is off.</string>
+    <string name="error_permission_denied">Bluetooth permission is not granted.</string>
+    <string name="error_not_registered">Keyboard mode is not enabled.</string>
+    <string name="error_not_connected">No computer is connected.</string>
+    <string name="error_no_bonded_host">No paired computer was found.</string>
+    <string name="error_registration_failed">Keyboard mode could not be enabled.</string>
+    <string name="error_connection_failed">The computer could not be connected.</string>
+    <string name="error_send_failed">The key could not be sent.</string>
+    <string name="error_unknown">An unexpected Bluetooth error occurred.</string>
+</resources>
