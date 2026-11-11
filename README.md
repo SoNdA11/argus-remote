@@ -165,6 +165,43 @@ These are the exact steps validated on Arch Linux with BlueZ 5.87
 (kernel HIDP + uhid): after pairing, the kernel creates the keyboard and every
 remote button arrives with the expected keysym and modifier.
 
+## Pairing from Windows (10 / 11)
+
+Windows has no `bluetoothctl`: pairing is done through the Settings UI, and the
+phone is accepted as a keyboard automatically once the HID service connects.
+
+1. On the phone: open the app, grant Bluetooth permissions, turn Bluetooth on,
+   tap **Enable keyboard mode**, then **Make phone discoverable**.
+2. On Windows: `Settings → Bluetooth & devices → Add device → Bluetooth`.
+3. Wait for the phone's Bluetooth name to appear and click it.
+4. Windows may show a PIN or ask you to confirm a passkey on the phone —
+   accept it on both sides. (HyperOS / MIUI phones ask for a 6-digit passkey
+   confirmation; other skins vary.)
+5. Once paired, open the app again, select the computer in the list and tap
+   **Connect**, then **Open remote**.
+
+If the computer was paired to the phone before keyboard mode existed, remove the
+pairing on both sides first (`Settings → Bluetooth & devices → (phone) →
+Remove device` on Windows, and "Forget" on the phone) and pair again —
+otherwise Windows keeps the old device class and no keys arrive.
+
+To confirm Windows sees a keyboard:
+
+- `Settings → Bluetooth & devices` shows the phone as a connected device.
+- Open `Device Manager` (right-click the Start button) and look under
+  `Keyboards` / `Human Interface Devices` for an entry named after the phone.
+- Open Notepad (or any text field) and press the phone's **Next** button: a
+  `→` should be typed. If nothing happens, the HID channels did not open —
+  disconnect and reconnect from the app's setup screen.
+
+These steps target Windows 10 (22H2) and Windows 11. The phone keeps its
+`phone` device class, so Windows may still list it under phones; the proof that
+the keyboard works is the key test above, not the icon.
+
+> Status: pairing guide added from the Bluetooth HID specification and the
+> Linux-validated descriptor. End-to-end verification on a Windows host is
+> pending user confirmation.
+
 ## Key map
 
 The default map targets Reveal.js and other web slide frameworks. Every
@@ -220,6 +257,20 @@ screen; the host may have dropped the link while the phone was idle.
 **Timer keeps running in the background.** This is intended: the clock is
 monotonic and unaffected by the app lifecycle. Reset it between rehearsals.
 
+**Windows asks for a PIN and pairing fails.** Some Windows builds require a
+manual PIN during pairing. Use the PIN shown on the phone, or pair from the
+phone side (`Settings → Bluetooth → (computer) → Pair`) which lets Windows
+choose the PIN.
+
+**Windows pairs but the phone is not under Keyboards.** Windows may keep the
+phone under "Other devices" until the HID service connects. Disconnect and
+reconnect from the app's setup screen; if it persists, remove the pairing on
+both sides and pair again while the phone is in discoverable mode.
+
+**Windows blocks the connection as an "unknown device".** Make sure the phone
+is discoverable and that Windows Bluetooth is set to allow new devices. On
+managed/corporate machines, Bluetooth may be disabled by policy.
+
 ## Limitations
 
 - HID input is one-way, so the remote cannot show the current slide, the total
@@ -235,7 +286,8 @@ monotonic and unaffected by the app lifecycle. Reset it between rehearsals.
 - [x] Bluetooth HID keyboard for Android 9+
 - [x] Presentation timer with editable target
 - [x] Deck shortcuts and hold-to-skip
-- [ ] Windows host: pairing guide and WinRT/HID notes
+- [x] Windows host: pairing guide (Windows 10/11)
+- [ ] Windows host: end-to-end validation on a physical machine
 - [ ] macOS host: pairing guide
 - [ ] Configurable key bindings per application
 - [ ] Remember the last host and reconnect automatically
